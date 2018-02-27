@@ -1,0 +1,67 @@
+<!DOCTYPE html><html><head><style>body {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+
+            background: linear-gradient(-45deg, #f1f1f1 0, #f1f1f1 25%, #f8ac59 0, #f8ac59 50%, #f1f1f1 0, #f1f1f1 75%, #f8ac59 0, #f8ac59 100%);
+            background-size: 16px 16px;
+
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        .fram {
+            margin: 64px;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            /*border-style: dashed;*/
+            /*border-width: 1px;*/
+            /*border-color: #0d8ddb;*/
+            box-shadow: 0 0 2px #777;
+            min-width: 400px;
+            min-height: 300px;
+            width: calc(100% - 128px);
+            height: calc(100% - 128px);
+            background: #f0f0f0;
+        }</style></head><body><div class="ext"></div><div class="fram"><div id="mcr"></div></div><script type="text/javascript" src="//mcr.tool.budblack.me/201802271430/msign.js"></script></body><script>const TIME_SECONDS = 2000;
+
+  window.onload = function () {
+    if (window.msign) {
+      window.msign
+            .create('#mcr')
+            .then(function (_msign) {
+                    msign = _msign;
+                    setTimeout(drawSth, TIME_SECONDS);
+                  }
+            );
+    }
+  };
+  
+  function drawSth () {
+    for (let i = 0 ; i < 1 ; i++)
+      setTimeout(function () {
+        msign.option.mode = 0;
+        msign.option.afk  = false;
+
+        msign.sandbox.models.push(
+            {
+              type   : 'gltf',
+              //              urlGltf: 'http://msign.oss.tool.budblack.me/uploads/b447b1ff-3e84-4ed0-8d6c-8fd6e386d0d0.gltf?Expires=1517806509&OSSAccessKeyId=TMP.AQGS8PxOzI0Hjd8z8FcS2AaIkQ7oc0y-6ezgEaTTcxDdmyhvhkwC3vX1EzF-AAAwLAIUNdADI1HuGFOLCHyo2HSn-EsPjrgCFBPwRcHbt0T5lXw3OM-I_utTXVVE&Signature=wLJPpSzWNuE3VEkhQSJLs1TvChc%3D',
+              urlGltf: '/testModels/gltf_json/test0804.json?_i=' + i,
+              option : {
+                position: {
+                  x: 0,
+                  y: -2200,
+                  z: 0
+                }
+              }
+            }
+        );
+      }, i * TIME_SECONDS)
+  }</script></html>
